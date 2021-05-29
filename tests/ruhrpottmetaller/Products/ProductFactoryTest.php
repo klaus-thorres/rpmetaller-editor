@@ -3,7 +3,7 @@
 namespace ruhrpottmetaller\Products;
 
 use PHPUnit\Framework\TestCase;
-use ruhrpottmetaller\Storage;
+use ruhrpottmetaller\Storage\Storage;
 
 class ProductFactoryTest extends TestCase
 {
@@ -14,7 +14,7 @@ class ProductFactoryTest extends TestCase
         $productFactory->setFilters(array());
         $productFactory->setDisplayType("display");
         $productFactory->setProductName("band");
-        $productStorage = $productFactory->factoryMethod();
+        $productStorage = $productFactory->factoryMethod()->getProducts();
         self::assertInstanceOf(Storage::class, $productStorage);
         self::assertInstanceOf(Band::class, $productStorage->getCurrentItem());
     }

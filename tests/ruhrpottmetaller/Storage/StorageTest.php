@@ -1,13 +1,11 @@
 <?php
 
-namespace ruhrpottmetaller;
+namespace ruhrpottmetaller\Storage;
 
 use PHPUnit\Framework\TestCase;
 
-use PHPUnit\Util\Exception;
 use ruhrpottmetaller\Commands\GetCommand;
 use ruhrpottmetaller\Products\Band;
-
 use ruhrpottmetaller\Products\ProductFactory;
 
 use function PHPUnit\Framework\assertEquals;

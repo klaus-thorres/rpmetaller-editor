@@ -4,7 +4,7 @@ namespace ruhrpottmetaller\Products;
 
 use PHPUnit\Framework\TestCase;
 use ruhrpottmetaller\MysqliConnect;
-use ruhrpottmetaller\Storage;
+use ruhrpottmetaller\Storage\Storage;
 
 class GetBandTest extends TestCase
 {

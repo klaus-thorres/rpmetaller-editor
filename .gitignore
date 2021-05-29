@@ -6,3 +6,5 @@ tags.lock
 /composer.phar
 /deploy/composer.lock
 /.phpunit.result.cache
+/deploy/includes/db_preferences.inc.php.old
+/deploy/includes/db_preferences.inc.php.new

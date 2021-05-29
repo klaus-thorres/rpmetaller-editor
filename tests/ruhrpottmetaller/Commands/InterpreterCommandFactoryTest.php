@@ -4,7 +4,7 @@ namespace ruhrpottmetaller\Commands;
 
 use PHPUnit\Framework\TestCase;
 use ruhrpottmetaller\Products\ProductFactory;
-use ruhrpottmetaller\Storage;
+use ruhrpottmetaller\Storage\Storage;
 
 class InterpreterCommandFactoryTest extends TestCase
 {
