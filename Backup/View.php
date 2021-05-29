@@ -3,7 +3,7 @@
 namespace ruhrpottmetaller;
 
 
-class View
+class   View
 {
     private $template_path = 'templates';
     private $image_path = 'images';
