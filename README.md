@@ -13,11 +13,8 @@ This work is provided under the terms of the MIT licence. Please take a look at 
 * Mark bands whose concerts should not be exported.
 
 ## Technology
-The software does not have any special needs. A reasonably current version of PHP,
-the web server and MySQL or MariaDB should do the job. It is best to try it out.
-
-These versions are known to work:
-* PHP 7.4
+These software versions are known to work:
+* PHP 8.0
 * Apache 2.5
 * MariaDB 10.4 or MySQL 8.0
 
