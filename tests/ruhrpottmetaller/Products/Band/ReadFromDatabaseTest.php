@@ -7,7 +7,7 @@ use ruhrpottmetaller\MysqliConnect;
 use ruhrpottmetaller\Products\IProduct;
 use ruhrpottmetaller\Storage\Storage;
 
-class BandEnvironmentTest extends TestCase
+class ReadFromDatabaseTest extends TestCase
 {
     protected MysqliConnect $mysqliConnect;
     protected IProduct $product;
@@ -23,7 +23,7 @@ class BandEnvironmentTest extends TestCase
     public function testGetProducts_ReturnAStorageObjectWhichContainsAMinimumOfABandObject()
     {
         $productStorage = new Storage();
-        $bandGetter = new Environment(
+        $bandGetter = new ReadFromDatabase(
             $this->mysqliConnect,
             $productStorage,
             product: $this->product,

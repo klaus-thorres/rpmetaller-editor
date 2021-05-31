@@ -5,7 +5,7 @@ namespace ruhrpottmetaller\Products\Band;
 use PHPUnit\Framework\TestCase;
 use ruhrpottmetaller\Products\IProduct;
 
-class BandTest extends TestCase
+class ProductTest extends TestCase
 {
     private IProduct $band;
 

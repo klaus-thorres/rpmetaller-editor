@@ -14,12 +14,12 @@ class ProductFactory
     public function factoryMethod(): AbstractReadFromDatabase
     {
         $namespace = $this->getNamespaceName();
-        $product_environment_class_name = $namespace . 'Environment';
-        $product_class_name = $namespace . 'Product';
-        return new $product_environment_class_name(
+        $read_from_database_class = $namespace . 'ReadFromDatabase';
+        $product_class = $namespace . 'Product';
+        return new $read_from_database_class(
             mysqliConnect: new MysqliConnect(),
             productStorage: new Storage(),
-            product: new $product_class_name(),
+            product: new $product_class(),
             filters: $this->filters,
             display_type: $this->display_type
         );
