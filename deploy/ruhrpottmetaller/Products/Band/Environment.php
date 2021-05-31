@@ -6,7 +6,7 @@ use mysqli;
 use mysqli_stmt;
 use ruhrpottmetaller\Products\AbstractProductEnvironment;
 
-class BandEnvironment extends AbstractProductEnvironment
+class Environment extends AbstractProductEnvironment
 {
     protected function getPreparedMysqliStatement(mysqli $mysqli): mysqli_stmt
     {

@@ -23,7 +23,7 @@ class BandEnvironmentTest extends TestCase
     public function testGetProducts_ReturnAStorageObjectWhichContainsAMinimumOfABandObject()
     {
         $productStorage = new Storage();
-        $bandGetter = new BandEnvironment(
+        $bandGetter = new Environment(
             $this->mysqliConnect,
             $productStorage,
             product: $this->product,

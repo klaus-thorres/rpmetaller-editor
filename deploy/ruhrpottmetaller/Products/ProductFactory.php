@@ -14,9 +14,8 @@ class ProductFactory
     public function factoryMethod(): AbstractProductEnvironment
     {
         $namespace = $this->getNamespaceName();
-        $product_environment_class_name = $namespace . $this->getProductEnvironmentClassName();
+        $product_environment_class_name = $namespace . 'Environment';
         $product_class_name = $namespace . 'Product';
-        echo $product_class_name;
         return new $product_environment_class_name(
             mysqliConnect: new MysqliConnect(),
             productStorage: new Storage(),
@@ -39,11 +38,6 @@ class ProductFactory
     public function setDisplayType($display_type):void
     {
         $this->display_type = $display_type;
-    }
-
-    protected function getProductEnvironmentClassName(): string
-    {
-        return ucfirst(string: $this->product_name) . 'Environment';
     }
 
     protected function getNamespaceName(): string
