@@ -11,7 +11,7 @@ class ProductFactory
     protected string $display_type;
     protected array $filters;
 
-    public function factoryMethod(): AbstractProductEnvironment
+    public function factoryMethod(): AbstractReadFromDatabase
     {
         $namespace = $this->getNamespaceName();
         $product_environment_class_name = $namespace . 'Environment';

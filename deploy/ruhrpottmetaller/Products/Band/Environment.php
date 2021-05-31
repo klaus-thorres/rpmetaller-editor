@@ -4,9 +4,9 @@ namespace ruhrpottmetaller\Products\Band;
 
 use mysqli;
 use mysqli_stmt;
-use ruhrpottmetaller\Products\AbstractProductEnvironment;
+use ruhrpottmetaller\Products\AbstractReadFromDatabase;
 
-class Environment extends AbstractProductEnvironment
+class Environment extends AbstractReadFromDatabase
 {
     protected function getPreparedMysqliStatement(mysqli $mysqli): mysqli_stmt
     {

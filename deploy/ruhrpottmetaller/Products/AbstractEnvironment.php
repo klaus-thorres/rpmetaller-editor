@@ -3,10 +3,12 @@
 namespace ruhrpottmetaller\Products;
 
 use mysqli;
+use mysqli_result;
+use mysqli_stmt;
 use ruhrpottmetaller\MysqliConnect;
 use ruhrpottmetaller\Storage\Storage;
 
-abstract class AbstractProductEnvironment
+abstract class AbstractEnvironment
 {
     protected MysqliConnect $mysqliConnect;
     protected Storage $productStorage;
@@ -38,7 +40,7 @@ abstract class AbstractProductEnvironment
         return $this->productStorage;
     }
 
-    private function getMysqliResult(\mysqli_stmt $mysqliStatement):\mysqli_result
+    private function getMysqliResult(mysqli_stmt $mysqliStatement): mysqli_result
     {
         $mysqliStatement->execute();
         $mysqliResult = $mysqliStatement->get_result();
@@ -46,7 +48,7 @@ abstract class AbstractProductEnvironment
         return $mysqliResult;
     }
 
-    private function fillProductStorage(\mysqli_result $mysqliResult): void
+    private function fillProductStorage(mysqli_result $mysqliResult): void
     {
         while ($product_data = $mysqliResult->fetch_assoc()) {
             $this->productStorage->addItem($this->fillProduct(product_data: $product_data));
