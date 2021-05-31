@@ -17,7 +17,7 @@ class BandEnvironmentTest extends TestCase
         parent::setUp();
         chdir('deploy/');
         $this->mysqliConnect = new MysqliConnect();
-        $this->product = new Band();
+        $this->product = new Product();
     }
 
     public function testGetProducts_ReturnAStorageObjectWhichContainsAMinimumOfABandObject()
@@ -32,7 +32,7 @@ class BandEnvironmentTest extends TestCase
         );
         $productStorage = $bandGetter->getProducts();
         self::assertInstanceOf(Storage::class, $productStorage);
-        self::assertInstanceOf(Band::class, $productStorage->getCurrentItem());
+        self::assertInstanceOf(Product::class, $productStorage->getCurrentItem());
     }
 
 }

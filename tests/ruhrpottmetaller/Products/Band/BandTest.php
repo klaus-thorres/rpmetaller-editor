@@ -12,7 +12,7 @@ class BandTest extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $this->band = new Band();
+        $this->band = new Product();
     }
 
     public function testGetId_CloneObjectAndDataAndReceiveProvidedIdBack()

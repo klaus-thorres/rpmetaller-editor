@@ -6,7 +6,7 @@ namespace ruhrpottmetaller\Products\Band;
 
 use ruhrpottmetaller\Products\IProduct;
 
-class Band implements IProduct
+class Product implements IProduct
 {
     private int $id;
     private string $name;

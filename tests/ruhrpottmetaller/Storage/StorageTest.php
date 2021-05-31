@@ -5,7 +5,7 @@ namespace ruhrpottmetaller\Storage;
 use PHPUnit\Framework\TestCase;
 
 use ruhrpottmetaller\Commands\GetCommand;
-use ruhrpottmetaller\Products\Band\Band;
+use ruhrpottmetaller\Products\Band\Product;
 use ruhrpottmetaller\Products\ProductFactory;
 
 use function PHPUnit\Framework\assertEquals;
@@ -23,14 +23,14 @@ class StorageTest extends TestCase
     public function testIsDone_ifOneItemIsAddedAndPointerIsNotSetToNextItemIsDoneReturnsFalse()
     {
         $storage = new Storage();
-        $storage->addItem(new Band());
+        $storage->addItem(new Product());
         assertFalse($storage->isDone());
     }
 
     public function testIsDone_ifOneItemIsAddedAndPointerIsSetToNextItemOnceReturnTrue()
     {
         $storage = new Storage();
-        $storage->addItem((new Band()));
+        $storage->addItem((new Product()));
         $storage->setPointerToNextItem();
         self::assertTrue($storage->isDone());
     }
@@ -45,7 +45,7 @@ class StorageTest extends TestCase
     public function testGetCurrentItem_IfOneItemIsAddedGetTheItemBackIfPointerIsNotMoved()
     {
         $storage = new Storage();
-        $item = new Band();
+        $item = new Product();
         $storage->addItem($item);
         self::assertEquals($item, $storage->getCurrentItem());
 
@@ -61,7 +61,7 @@ class StorageTest extends TestCase
     public function testGetCurrentItem_IfTwoItemsAreAddedGetCurrentReturnsTheFirstAndGetCurrentAfterPointerIsSetToNextItemReturnsTheSecond()
     {
         $storage = new Storage();
-        $item_1 = new Band();
+        $item_1 = new Product();
         $item_2 = new GetCommand(new ProductFactory());
         $storage->addItem($item_1);
         $storage->addItem($item_2);
