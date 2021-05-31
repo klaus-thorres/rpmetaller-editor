@@ -8,20 +8,20 @@ use ruhrpottmetaller\Products\AbstractReadFromDatabase;
 
 class ReadFromDatabase extends AbstractReadFromDatabase
 {
-    protected function getPreparedMysqliStatement(mysqli $mysqli): mysqli_stmt
+    protected function getPreparedMysqliStatement(mysqli $mysqli, array $filters): mysqli_stmt
     {
         if (isset($this->filters['id'])) {
-            $mysqliStatement = $this->getPreparedMysqliStatementFilterById(mysqli: $mysqli, id: $this->filters['id']);
-        } elseif (!isset($this->filters['first_character']) or $this->filters['first_character'] == '') {
+            $mysqliStatement = $this->getPreparedMysqliStatementFilterById(mysqli: $mysqli, id: $filters['id']);
+        } elseif (!isset($this->filters['first_character']) or $filters['first_character'] == '') {
             $mysqliStatement = $this->getPreparedMysqliStatementNoFilter(mysqli: $mysqli);
-        } elseif ($this->filters['first_character'] == '%') {
+        } elseif ($filters['first_character'] == '%') {
             $mysqliStatement = $this->getPreparedMysqliStatementFirstCharIsSpecialCharacter(
                 mysqli: $mysqli,
             );
         } else {
             $mysqliStatement = $this->getPreparedMysqliStatementFirstCharIsNormalLetter(
                 mysqli: $mysqli,
-                first_character:  $this->filters['first_character']
+                first_character:  $filters['first_character']
             );
         }
         return $mysqliStatement;

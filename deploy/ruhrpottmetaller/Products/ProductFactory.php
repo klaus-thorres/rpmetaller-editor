@@ -20,10 +20,8 @@ class ProductFactory
             mysqliConnect: new MysqliConnect(),
             productStorage: new Storage(),
             product: new $product_class(),
-            filters: $this->filters,
-            display_type: $this->display_type
         );
-        return $readFromDatabase->getProducts();
+        return $readFromDatabase->getProducts(filters: $this->filters);
     }
 
     public function setProductName($product_name):void

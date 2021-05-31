@@ -23,14 +23,13 @@ class ReadFromDatabaseTest extends TestCase
     public function testGetProducts_ReturnAStorageObjectWhichContainsAMinimumOfABandObject()
     {
         $productStorage = new Storage();
-        $bandGetter = new ReadFromDatabase(
+        $readFromDatabase = new ReadFromDatabase(
             $this->mysqliConnect,
             $productStorage,
             product: $this->product,
-            filters: array(),
-            display_type: 'display'
         );
-        $productStorage = $bandGetter->getProducts();
+        $filters = array();
+        $productStorage = $readFromDatabase->getProducts(filters: $filters);
         self::assertInstanceOf(Storage::class, $productStorage);
         self::assertInstanceOf(Product::class, $productStorage->getCurrentItem());
     }

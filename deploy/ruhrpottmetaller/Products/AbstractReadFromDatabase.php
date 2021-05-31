@@ -13,28 +13,26 @@ abstract class AbstractReadFromDatabase
     protected MysqliConnect $mysqliConnect;
     protected Storage $productStorage;
     protected IProduct $product;
-    protected array $filters;
-    protected string $display_type;
 
     public function  __construct(
         MysqliConnect $mysqliConnect,
         Storage $productStorage,
         IProduct $product,
-        array $filters,
-        string $display_type
     ) {
         $this->mysqliConnect = $mysqliConnect;
         $this->productStorage = $productStorage;
         $this->product = $product;
-        $this->filters = $filters;
-        $this->display_type = $display_type;
-
     }
 
-    public function getProducts(): Storage
+    abstract protected function getPreparedMysqliStatement(mysqli $mysqli, array $filters);
+
+    public function getProducts(array $filters): Storage
     {
         $mysqli = $this->mysqliConnect->getMysqli();
-        $mysqliStatement = $this->getPreparedMysqliStatement(mysqli: $mysqli);
+        $mysqliStatement = $this->getPreparedMysqliStatement(
+            mysqli: $mysqli,
+            filters: $filters,
+        );
         $mysqliResult = $this->getMysqliResult(mysqliStatement: $mysqliStatement);
         $this->fillProductStorage(mysqliResult: $mysqliResult);
         return $this->productStorage;
@@ -61,6 +59,5 @@ abstract class AbstractReadFromDatabase
         $product->setInitialData($product_data);
         return $product;
     }
-
-    abstract protected function getPreparedMysqliStatement(mysqli $mysqli);
 }
+
