@@ -15,8 +15,7 @@ class GetCommand extends AbstractCommand
 
     public function execute()
     {
-        $productEnvironment = $this->productFactory->factoryMethod();
-        $productStorage = $productEnvironment->getProducts();
+        $productStorage = $this->productFactory->factoryMethod();
         while (!$productStorage->isDone())
         {
             $productStorage->getCurrentItem()->prepareData();

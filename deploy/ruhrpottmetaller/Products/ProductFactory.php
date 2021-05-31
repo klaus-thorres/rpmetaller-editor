@@ -11,18 +11,19 @@ class ProductFactory
     protected string $display_type;
     protected array $filters;
 
-    public function factoryMethod(): AbstractReadFromDatabase
+    public function factoryMethod(): Storage
     {
         $namespace = $this->getNamespaceName();
         $read_from_database_class = $namespace . 'ReadFromDatabase';
         $product_class = $namespace . 'Product';
-        return new $read_from_database_class(
+        $readFromDatabase = new $read_from_database_class(
             mysqliConnect: new MysqliConnect(),
             productStorage: new Storage(),
             product: new $product_class(),
             filters: $this->filters,
             display_type: $this->display_type
         );
+        return $readFromDatabase->getProducts();
     }
 
     public function setProductName($product_name):void
