@@ -3,6 +3,7 @@
 namespace ruhrpottmetaller\Products;
 
 use PHPUnit\Framework\TestCase;
+use ruhrpottmetaller\Products\Band\Band;
 use ruhrpottmetaller\Storage\Storage;
 
 class ProductFactoryTest extends TestCase

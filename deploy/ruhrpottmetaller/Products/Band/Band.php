@@ -1,8 +1,10 @@
 <?php
 
 
-namespace ruhrpottmetaller\Products;
+namespace ruhrpottmetaller\Products\Band;
 
+
+use ruhrpottmetaller\Products\IProduct;
 
 class Band implements IProduct
 {

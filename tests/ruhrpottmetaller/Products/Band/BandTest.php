@@ -1,8 +1,9 @@
 <?php
 
-namespace ruhrpottmetaller\Products;
+namespace ruhrpottmetaller\Products\Band;
 
 use PHPUnit\Framework\TestCase;
+use ruhrpottmetaller\Products\IProduct;
 
 class BandTest extends TestCase
 {

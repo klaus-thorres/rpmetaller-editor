@@ -13,9 +13,9 @@ class ProductFactory
 
     public function factoryMethod(): AbstractProductEnvironment
     {
-        $namespace = "ruhrpottmetaller\\Products\\";
-        $productEnvironmentClassName = $namespace . $this->getProductEnvironmentClassName(product_name: $this->product_name);
-        $productClassName = $namespace . $this->getProductClassName(product_name: $this->product_name);
+        $namespace = $this->getNamespaceName();
+        $productEnvironmentClassName = $namespace . $this->getProductEnvironmentClassName();
+        $productClassName = $namespace . $this->getProductClassName();
         return new $productEnvironmentClassName(
             mysqliConnect: new MysqliConnect(),
             productStorage: new Storage(),
@@ -40,13 +40,18 @@ class ProductFactory
         $this->display_type = $display_type;
     }
 
-    protected function getProductClassName(string $product_name): string
+    protected function getProductClassName(): string
     {
-        return ucfirst(string: $product_name);
+        return ucfirst(string: $this->product_name);
     }
 
-    protected function getProductEnvironmentClassName(string $product_name): string
+    protected function getProductEnvironmentClassName(): string
     {
-        return ucfirst(string: $product_name) . 'Environment';
+        return ucfirst(string: $this->product_name) . 'Environment';
+    }
+
+    protected function getNamespaceName(): string
+    {
+        return 'ruhrpottmetaller\\Products\\' . ucfirst($this->product_name) . '\\';
     }
 }

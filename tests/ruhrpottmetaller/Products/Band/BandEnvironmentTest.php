@@ -1,12 +1,13 @@
 <?php
 
-namespace ruhrpottmetaller\Products;
+namespace ruhrpottmetaller\Products\Band;
 
 use PHPUnit\Framework\TestCase;
 use ruhrpottmetaller\MysqliConnect;
+use ruhrpottmetaller\Products\IProduct;
 use ruhrpottmetaller\Storage\Storage;
 
-class GetBandTest extends TestCase
+class BandEnvironmentTest extends TestCase
 {
     protected MysqliConnect $mysqliConnect;
     protected IProduct $product;

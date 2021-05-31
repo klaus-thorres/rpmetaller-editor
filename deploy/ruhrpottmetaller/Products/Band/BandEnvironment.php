@@ -1,9 +1,10 @@
 <?php
 
-namespace ruhrpottmetaller\Products;
+namespace ruhrpottmetaller\Products\Band;
 
 use mysqli;
 use mysqli_stmt;
+use ruhrpottmetaller\Products\AbstractProductEnvironment;
 
 class BandEnvironment extends AbstractProductEnvironment
 {

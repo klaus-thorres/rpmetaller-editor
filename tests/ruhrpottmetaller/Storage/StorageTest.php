@@ -5,7 +5,7 @@ namespace ruhrpottmetaller\Storage;
 use PHPUnit\Framework\TestCase;
 
 use ruhrpottmetaller\Commands\GetCommand;
-use ruhrpottmetaller\Products\Band;
+use ruhrpottmetaller\Products\Band\Band;
 use ruhrpottmetaller\Products\ProductFactory;
 
 use function PHPUnit\Framework\assertEquals;
